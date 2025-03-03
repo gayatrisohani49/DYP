@@ -3,82 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Portfolio</title>
-
-    <link rel="stylesheet" href="styles.css">
+    <title>Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        input {
+            width: 200px;
+            padding: 8px;
+            margin: 10px;
+            font-size: 16px;
+        }
+        button {
+            background-color: white;
+            color: black;
+            border: 1px solid black;
+            padding: 10px 15px;
+            margin: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: lightgray;
+        }
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 400px;
+            margin: auto;
+        }
+    </style>
+    
 </head>
 <body>
-
-    <header>
-        <div class="container">
-            <h1>Hello, I am Gayatri Sohani</h1>
-            <p>A passionate web developer</p>
-        </div>
-    </header>
-
-    <!-- About Me Section -->
-    <section id="about">
-        <div class="container">
-            <h2>About Me</h2>
-            <div class="content">
-                <img src="https://cdni.iconscout.com/illustration/premium/thumb/female-user-image-illustration-download-in-svg-png-gif-file-formats--person-girl-business-pack-illustrations-6515859.png?f=webp" alt="Srushti Barale">
-                <p>Hello! I'm Gayatri Sohani, a web developer with a passion for building beautiful and functional websites. I have experience working with HTML, CSS, and other technologies to create responsive and user-friendly web applications.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills">
-        <div class="container">
-            <h2>My Skills</h2>
-            <ul>
-                <li>HTML</li>
-                <li>CSS</li>
-        
-            </ul>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects">
-        <div class="container">
-            <h2>My Projects</h2>
-            <div class="project">
-                <h3>Project 1</h3>
-                <p>A web application I built using HTML, CSS, and Bootstrap, and the website called resturant.</p>
-            </div>
-            <div class="project">
-                <h3>Project 2</h3>
-                <p>A portfolio website built with HTML, CSS, and Bootstrap, which is about Healthcare.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <h2>Contact Me</h2>
-            <form action="#" method="POST">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-                
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="4" required></textarea>
-                
-                <button type="submit">Send Message</button>
-            </form>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Gayatri Sohani. All Rights Reserved.</p>
-        </div>
-    </footer>
-
+    <h2>Basic Calculator</h2>
+    <input type="number" id="num1" placeholder="Enter first number">
+    <input type="number" id="num2" placeholder="Enter second number">
+    <div class="button-container">
+        <button onclick="calculate('add')">+</button>
+        <button onclick="calculate('subtract')">-</button>
+        <button onclick="calculate('multiply')">×</button>
+        <button onclick="calculate('divide')">÷</button>
+        <button onclick="calculate('modulus')">%</button>
+        <button onclick="calculate('power')">x^y</button>
+        <button onclick="calculate('sqrt1')">√x</button>
+        <button onclick="calculate('sqrt2')">√y</button>
+        <button onclick="calculate('log1')">log(x)</button>
+        <button onclick="calculate('log2')">log(y)</button>
+        <button onclick="calculate('sin1')">sin(x)</button>
+        <button onclick="calculate('sin2')">sin(y)</button>
+    </div>
+    <h3 id="result">Result: </h3>
+    
+    <script>
+        function calculate(operation) {
+            let num1 = parseFloat(document.getElementById("num1").value);
+            let num2 = parseFloat(document.getElementById("num2").value);
+            let result;
+            
+            switch (operation) {
+                case 'add': result = num1 + num2; break;
+                case 'subtract': result = num1 - num2; break;
+                case 'multiply': result = num1 * num2; break;
+                case 'divide': result = num2 !== 0 ? num1 / num2 : 'Error: Division by zero'; break;
+                case 'modulus': result = num2 !== 0 ? num1 % num2 : 'Error: Division by zero'; break;
+                case 'power': result = Math.pow(num1, num2); break;
+                case 'sqrt1': result = Math.sqrt(num1); break;
+                case 'sqrt2': result = Math.sqrt(num2); break;
+                case 'log1': result = num1 > 0 ? Math.log(num1) : 'Error: Log undefined'; break;
+                case 'log2': result = num2 > 0 ? Math.log(num2) : 'Error: Log undefined'; break;
+                case 'sin1': result = Math.sin(num1); break;
+                case 'sin2': result = Math.sin(num2); break;
+                default: result = 'Invalid Operation';
+            }
+            document.getElementById("result").innerText = "Result: " + result;
+        }
+    </script>
 </body>
 </html>
