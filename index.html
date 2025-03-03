@@ -3,84 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 50px;
-        }
-        input {
-            width: 200px;
-            padding: 8px;
-            margin: 10px;
-            font-size: 16px;
-        }
-        button {
-            background-color: white;
-            color: black;
-            border: 1px solid black;
-            padding: 10px 15px;
-            margin: 5px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: lightgray;
-        }
-        .button-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            max-width: 400px;
-            margin: auto;
-        }
-    </style>
-    
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <h2>Basic Calculator</h2>
-    <input type="number" id="num1" placeholder="Enter first number">
-    <input type="number" id="num2" placeholder="Enter second number">
-    <div class="button-container">
-        <button onclick="calculate('add')">+</button>
-        <button onclick="calculate('subtract')">-</button>
-        <button onclick="calculate('multiply')">×</button>
-        <button onclick="calculate('divide')">÷</button>
-        <button onclick="calculate('modulus')">%</button>
-        <button onclick="calculate('power')">x^y</button>
-        <button onclick="calculate('sqrt1')">√x</button>
-        <button onclick="calculate('sqrt2')">√y</button>
-        <button onclick="calculate('log1')">log(x)</button>
-        <button onclick="calculate('log2')">log(y)</button>
-        <button onclick="calculate('sin1')">sin(x)</button>
-        <button onclick="calculate('sin2')">sin(y)</button>
-    </div>
-    <h3 id="result">Result: </h3>
-    
-    <script>
-        function calculate(operation) {
-            let num1 = parseFloat(document.getElementById("num1").value);
-            let num2 = parseFloat(document.getElementById("num2").value);
-            let result;
+    <div class="container">
+        <h2>Registration Form</h2>
+        <form id="registrationForm">
             
-            switch (operation) {
-                case 'add': result = num1 + num2; break;
-                case 'subtract': result = num1 - num2; break;
-                case 'multiply': result = num1 * num2; break;
-                case 'divide': result = num2 !== 0 ? num1 / num2 : 'Error: Division by zero'; break;
-                case 'modulus': result = num2 !== 0 ? num1 % num2 : 'Error: Division by zero'; break;
-                case 'power': result = Math.pow(num1, num2); break;
-                case 'sqrt1': result = Math.sqrt(num1); break;
-                case 'sqrt2': result = Math.sqrt(num2); break;
-                case 'log1': result = num1 > 0 ? Math.log(num1) : 'Error: Log undefined'; break;
-                case 'log2': result = num2 > 0 ? Math.log(num2) : 'Error: Log undefined'; break;
-                case 'sin1': result = Math.sin(num1); break;
-                case 'sin2': result = Math.sin(num2); break;
-                default: result = 'Invalid Operation';
-            }
-            document.getElementById("result").innerText = "Result: " + result;
-        }
-    </script>
+            <label for="fullname">Full Name:</label>
+            <input type="text" id="fullname" placeholder="Enter Full Name" required>
+
+            
+            <label for="aadhar">Aadhar Number:</label>
+            <input type="text" id="aadhar" placeholder="Enter 12-digit Aadhar number" required>
+
+            
+            <label for="pan">PAN Card Number:</label>
+            <input type="text" id="pan" placeholder="Enter PAN Card number" required>
+
+           
+            <label for="mobile">Mobile Number:</label>
+            <input type="text" id="mobile" placeholder="Enter Mobile number" required>
+
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" required>
+
+            <h3>Enter Marks :<h3>
+            <label for="subject1">Subject 1:</label>
+            <input type="number" id="subject1" placeholder="Marks in Subject 1" required>
+
+            <label for="subject2">Subject 2:</label>
+            <input type="number" id="subject2" placeholder="Marks in Subject 2" required>
+
+            <label for="subject3">Subject 3:</label>
+            <input type="number" id="subject3" placeholder="Marks in Subject 3" required>
+
+            <label for="subject4">Subject 4:</label>
+            <input type="number" id="subject4" placeholder="Marks in Subject 4" required>
+
+            <label for="subject5">Subject 5:</label>
+            <input type="number" id="subject5" placeholder="Marks in Subject 5" required>
+
+            <label for="subject6">Subject 6:</label>
+            <input type="number" id="subject6" placeholder="Marks in Subject 6" required>
+
+            <!-- Calculate Percentage -->
+            <label for="percentage">Percentage:</label>
+            <input type="text" id="percentage" readonly>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script src="index.js"></script>
 </body>
 </html>
